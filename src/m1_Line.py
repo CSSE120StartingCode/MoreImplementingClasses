@@ -249,7 +249,7 @@ class Line(object):
             print(line)
 
         Type hints:
-          :rtype str
+          :rtype: str
         """
         # --------------------------------------------------------------
         # We have already implemented this  __repr__  function for you.
@@ -288,7 +288,7 @@ class Line(object):
 
         Type hints:
           :type  line2: Line
-          :rtype bool
+          :rtype: bool
         """
         # --------------------------------------------------------------
         # We have already implemented this  __eq__  function for you.
@@ -323,7 +323,7 @@ class Line(object):
             print(line1 == line2)  # Should now print: False
 
         Type hints:
-          :rtype Line
+          :rtype: Line
         """
         # --------------------------------------------------------------
         # TODO: 4.
@@ -392,7 +392,7 @@ class Line(object):
             print(line2.slope() == 'inf')   # Should print False
 
         Type hints:
-          :rtype float
+          :rtype: float
         """
         # --------------------------------------------------------------
         # TODO: 6.
@@ -425,7 +425,7 @@ class Line(object):
             print(line2.length())  # Should print about 5.0
 
         Type hints:
-          :rtype float
+          :rtype: float
         """
         # --------------------------------------------------------------
         # TODO: 7.
@@ -465,7 +465,7 @@ class Line(object):
             0    [since there are no      line5.clone()  statements]
 
         Type hints:
-          :rtype int:
+          :rtype: int:
         """
         # --------------------------------------------------------------
         # TODO: 8.
@@ -499,7 +499,7 @@ class Line(object):
 
         Type hints:
           :type  other_line: Line
-          :rtype Line:
+          :rtype: Line:
         """
         # --------------------------------------------------------------
         # TODO: 9.
@@ -533,7 +533,7 @@ class Line(object):
 
         Type hints:
           :type  other_line: Line
-          :rtype Line:
+          :rtype: Line:
         """
         # --------------------------------------------------------------
         # TODO: 10.
@@ -560,7 +560,7 @@ class Line(object):
             print(line1.midpoint())  # Should print: Point(6, 15)
 
         Type hints:
-          :rtype Point
+          :rtype: Point
         """
         # --------------------------------------------------------------
         # TODO: 11.
@@ -596,7 +596,7 @@ class Line(object):
 
         Type hints:
           :type  line2: Line
-          :rtype bool
+          :rtype: bool
         """
         # --------------------------------------------------------------
         # TODO: 12.
