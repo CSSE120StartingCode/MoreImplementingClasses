@@ -2,7 +2,7 @@
 TESTS the   Line   class in module   m1_Line.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder and their colleagues.  March 2016.
+         Amanda Stouder and their colleagues.
 """
 
 import sys
@@ -14,34 +14,34 @@ import m1_Line as m1
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    test_init()
-    test_clone()
-    test_reverse()
-    test_slope()
-    test_length()
-    test_get_number_of_clones()
-    test_line_plus()
-    test_line_minus()
-    test_midpoint()
-    test_is_parallel()
-    test_reset()
+    run_test_init()
+    run_test_clone()
+    run_test_reverse()
+    run_test_slope()
+    run_test_length()
+    run_test_get_number_of_clones()
+    run_test_line_plus()
+    run_test_line_minus()
+    run_test_midpoint()
+    run_test_is_parallel()
+    run_test_reset()
 
     # These other methods used to exist or were planned at one point.
-#     test_rotate()
-#     test_get_number_of_rotations()
-#     test_projection()
-#     test_intersection()
+#     run_test_rotate()
+#     run_test_get_number_of_rotations()
+#     run_test_projection()
+#     run_test_intersection()
 
 
-def evaluate_test(expected, actual, test_title=None, flush_time=0.05):
+def evaluate_test(expected, actual, run_test_title=None, flush_time=0.05):
     """
-    Prints the (optional) test_title,
+    Prints the (optional) run_test_title,
     then prints the expected and actual results for the test.
     If the test FAILED, also prints a failure message in red.
     """
     print()
-    if test_title:
-        print(test_title)
+    if run_test_title:
+        print(run_test_title)
     print('Expected:', expected)
     print('Actual:  ', actual, flush=True)
 
@@ -95,7 +95,7 @@ def start_test(method_name):
     if not is_implemented(method_name):
         return False
 
-    print('The following are OUR tests (from m1t_test_Line):')
+    print('The following are OUR tests (from m1t_run_test_Line):')
     return True
 
 
@@ -106,7 +106,7 @@ def end_test():
 ########################################################################
 # The TEST functions for the  Line  class begin here.
 ########################################################################
-def test_init():
+def run_test_init():
     """ Tests the   __init__   method of the Line class. """
     if not start_test('__init__'):
         return
@@ -167,7 +167,7 @@ def test_init():
 
     end_test()
 
-def test_clone():
+def run_test_clone():
     """ Tests the   clone   method of the Line class. """
     if not start_test('clone'):
         return
@@ -251,7 +251,7 @@ def test_clone():
     end_test()
 
 
-def test_reverse():
+def run_test_reverse():
     """ Tests the   reverse   method of the Line class. """
     if not start_test('reverse'):
         return
@@ -300,7 +300,7 @@ def test_reverse():
     end_test()
 
 
-def test_slope():
+def run_test_slope():
     """ Tests the   slope   method of the Line class. """
     if not start_test('slope'):
         return
@@ -338,7 +338,7 @@ def test_slope():
     end_test()
 
 
-def test_length():
+def run_test_length():
     """ Tests the   length   method of the Line class. """
     if not start_test('length'):
         return
@@ -389,7 +389,7 @@ def test_length():
     end_test()
 
 
-def test_get_number_of_clones():
+def run_test_get_number_of_clones():
     """ Tests the   get_number_of_clones   method of the Line class. """
     if not start_test('get_number_of_clones'):
         return
@@ -442,7 +442,7 @@ def test_get_number_of_clones():
     end_test()
 
 
-def test_line_plus():
+def run_test_line_plus():
     """ Tests the   line_plus   method of the Line class. """
     if not start_test('line_plus'):
         return
@@ -469,7 +469,7 @@ def test_line_plus():
     end_test()
 
 
-def test_line_minus():
+def run_test_line_minus():
     """ Tests the   line_minus   method of the Line class. """
     if not start_test('line_minus'):
         return
@@ -496,7 +496,7 @@ def test_line_minus():
     end_test()
 
 
-def test_midpoint():
+def run_test_midpoint():
     """ Tests the   midpoint   method of the Line class. """
     if not start_test('midpoint'):
         return
@@ -530,7 +530,7 @@ def test_midpoint():
     end_test()
 
 
-def test_is_parallel():
+def run_test_is_parallel():
     """ Tests the   is_parallel   method of the Line class. """
     if not start_test('is_parallel'):
         return
@@ -663,7 +663,7 @@ def test_is_parallel():
     end_test()
 
 
-# def test_rotate():
+# def run_test_rotate():
 #     """ Tests the   rotate   method of the Line class. """
 #     print()
 #     print('-----------------------------------------------------------')
@@ -672,7 +672,7 @@ def test_is_parallel():
 #     if not is_implemented('rotate'):
 #         return
 #
-#     print('The following are OUR tests (from m1t_test_Line):')
+#     print('The following are OUR tests (from m1t_run_test_Line):')
 #
 #     # ------------------------------------------------------------------
 #     # Tests using a vertical Line whose center is (60, 300)
@@ -751,7 +751,7 @@ def test_is_parallel():
 #     print()
 #
 #
-# def test_rotations():
+# def run_test_rotations():
 #     """ Tests the   rotations   method of the Line class. """
 #     print()
 #     print('-----------------------------------------------------------')
@@ -760,7 +760,7 @@ def test_is_parallel():
 #     if not is_implemented('rotations'):
 #         return
 #
-#     print('The following are OUR tests (from m1t_test_Line):')
+#     print('The following are OUR tests (from m1t_run_test_Line):')
 #
 #     line1 = m1.Line(m1.Point(88, 99), m1.Point(77, 66))
 #     line2 = m1.Line(m1.Point(0, 0), m1.Point(10, 30))
@@ -811,7 +811,7 @@ def test_is_parallel():
 #     print()
 
 
-# def test_intersection():
+# def run_test_intersection():
 #     """ Tests the   intersection   method of the Line class. """
 #     print()
 #     print('-----------------------------------------------------------')
@@ -820,7 +820,7 @@ def test_is_parallel():
 #     if not is_implemented('intersection'):
 #         return
 #
-#     print('The following are OUR tests (from m1t_test_Line):')
+#     print('The following are OUR tests (from m1t_run_test_Line):')
 #
 #     line1 = m1.Line(m1.Point(10, 4),
 #                     m1.Point(24, 4))
@@ -885,7 +885,7 @@ def test_is_parallel():
 
 
 
-def test_reset():
+def run_test_reset():
     """ Tests the   reset   method of the Line class. """
     if not start_test('reset'):
         return
@@ -981,7 +981,7 @@ def test_reset():
     end_test()
 
 
-# def test_projection():
+# def run_test_projection():
 #     """ Tests the   projection   method of the Line class. """
 #     print()
 #     print('-----------------------------------------------------------')
@@ -990,7 +990,7 @@ def test_reset():
 #     if not is_implemented('projection'):
 #         return
 #
-#     print('The following are OUR tests (from m1t_test_Line):')
+#     print('The following are OUR tests (from m1t_run_test_Line):')
 #
 #     print('\nHere is YOUR test (that YOU wrote in m1_Line):')
 #     print()

@@ -8,8 +8,7 @@ WITH YOUR INSTRUCTOR:
 
   2. Understand how this exercise works:
      -- You will implement a ** Line ** class.
-     -- In doing so, you will (many times) use methods
-          from the Point class.
+     -- In doing so, you will (many times) use methods from the Point class.
      -- Implement and test the methods of the Line class, one by one,
           ** using the process described BELOW. **
 
