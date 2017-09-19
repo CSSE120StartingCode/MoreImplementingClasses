@@ -95,24 +95,24 @@ class Point(object):
         Returns a string representation of this Point.
         For each coordinate (x and y), the representation
           - uses no decimal points if the number is close to an integer,
-          - else it uses D places after the decimal point, where D = 2.
+          - else it uses decimal_places places after the decimal point, where decimal_places = 2.
         Examples:
            Point(10, 3.14)
            Point(3.01, 2.99)
         """
-        D = 2  # Use 2 places after the decimal point
+        decimal_places = 2  # Use 2 places after the decimal point
 
         formats = []
         numbers = []
         for coordinate in (self.x, self.y):
-            if abs(coordinate - round(coordinate)) < (10 ** -D):
+            if abs(coordinate - round(coordinate)) < (10 ** -decimal_places):
                 # Treat it as an integer:
                 formats.append('{}')
                 numbers.append(round(coordinate))
             else:
-                # Treat it as a float to D decimal places:
-                formats.append('{:.' + str(D) + 'f}')
-                numbers.append(round(coordinate, D))
+                # Treat it as a float to decimal_places decimal places:
+                formats.append('{:.' + str(decimal_places) + 'f}')
+                numbers.append(round(coordinate, decimal_places))
 
         format_string = 'Point(' + formats[0] + ', ' + formats[1] + ')'
         return format_string.format(numbers[0], numbers[1])
