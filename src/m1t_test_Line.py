@@ -9,6 +9,7 @@ import sys
 import time
 import inspect
 import math
+import re
 import m1_Line as m1
 
 
@@ -81,7 +82,18 @@ def is_implemented(line_method, expected_lines=2):
     method = getattr(m1.Line, line_method)
     source = inspect.getsource(method)
     doc_string = method.__doc__
-    expected = source.replace(doc_string, '')
+    if doc_string:
+        expected = source.replace(doc_string, '')
+    else:
+        print()
+        print("** Your code in {} is above the method's doc string.".format(line_method))
+        print("** The doc string should always be at the top of the method.")
+        print("** Move your code BELOW the doc string within {}!".format(line_method))
+        print()
+        expected = re.sub(r'""".*"""', '', source,
+                          flags=re.DOTALL)  # @UndefinedVariable
+        expected = re.sub(r'^\\n', '', expected,
+                          flags=re.MULTILINE)  # @UndefinedVariable
     lines_left = expected.splitlines()
 
     return len(lines_left) > expected_lines
