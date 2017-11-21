@@ -43,10 +43,10 @@ each method   M   of the Line class.
 Here is a BRIEF description of OUR tests, using the   reverse   method
 as an example.  ASK YOUR INSTRUCTOR FOR HELP as needed with OUR tests.
 
-    def test_reverse():
+    def run_test_reverse():
         """ Tests the   reverse   method of the Line class. """
         
-        m1t.test_reverse()  # This runs OUR tests.
+        m1t.run_test_reverse()  # This runs OUR tests.
         
         # --------------------------------------------------------------
         # One ADDITIONAL test (or set of tests).
@@ -72,7 +72,7 @@ as an example.  ASK YOUR INSTRUCTOR FOR HELP as needed with OUR tests.
         print('  True')
 
 OUR tests are called by the statement:
-        m1t.test_reverse()  # This runs OUR tests.
+        m1t.run_test_reverse()  # This runs OUR tests.
 So OUR tests run first, THEN the test(s) that came from the Example
 in the method's specification.
 
