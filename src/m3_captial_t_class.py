@@ -13,6 +13,8 @@ def main():
     # --------------------------------------------------------------
     #   Uncomment only 1 test at a time as you develop your code.
     # --------------------------------------------------------------
+    print('Un-comment the calls in MAIN one by one')
+    print(' to run the testing code as you complete the TODOs.')
 
     # run_test_simple_t()
     # run_test_set_colors()
