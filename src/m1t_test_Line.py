@@ -1,8 +1,8 @@
 """
 TESTS the   Line   class in module   m1_Line.
 
-Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder and their colleagues.
+Authors: David Mutchler, Sana Ebrahimi, Mohammed Noureddine, Vibha Alangar,
+         Matt Boutell, Dave Fisher, Mark Hays, and their colleagues.
 """
 
 import sys
@@ -28,6 +28,8 @@ def main():
     run_test_reset()
 
     # These other methods used to exist or were planned at one point.
+
+
 #     run_test_rotate()
 #     run_test_get_number_of_rotations()
 #     run_test_projection()
@@ -77,7 +79,7 @@ def print_failure(message='  *** FAILED the above test. ***',
 
 
 def is_implemented(line_method, expected_lines=2):
-    """ True if the given Line method is not yet implemenented. """
+    """ True if the given Line method is not yet implemented. """
     # There is probably a better way to do this...
     method = getattr(m1.Line, line_method)
     source = inspect.getsource(method)
@@ -85,10 +87,13 @@ def is_implemented(line_method, expected_lines=2):
     if doc_string:
         expected = source.replace(doc_string, '')
     else:
+        line1 = "** Your code in {} is above the method's doc string."
+        line2 = "** The doc string should always be at the top of the method."
+        line3 = "** Consider moving your code BELOW the doc string within {}."
         print()
-        print("** Your code in {} is above the method's doc string.".format(line_method))
-        print("** The doc string should always be at the top of the method.")
-        print("** Move your code BELOW the doc string within {}!".format(line_method))
+        print(line1.format(line_method))
+        print(line2)
+        print(line3.format(line_method))
         print()
         expected = re.sub(r'""".*"""', '', source,
                           flags=re.DOTALL)  # @UndefinedVariable
@@ -102,7 +107,7 @@ def is_implemented(line_method, expected_lines=2):
 def start_test(method_name):
     print()
     print('-----------------------------------------------------------')
-    print('Testing the   {}   method of the   Line   class:'.format(method_name))
+    print('Testing the   {}   method of the  Line  class:'.format(method_name))
     print('-----------------------------------------------------------')
     if not is_implemented(method_name):
         return False
@@ -115,17 +120,17 @@ def end_test():
     print('\nHere is the test(s) in YOUR module (from the Example):\n')
 
 
-########################################################################
+###############################################################################
 # The TEST functions for the  Line  class begin here.
-########################################################################
+###############################################################################
 def run_test_init():
     """ Tests the   __init__   method of the Line class. """
     if not start_test('__init__'):
         return
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Tests using one line:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     start = m1.Point(12, 88)
     end = m1.Point(40, 33)
     start_clone = start.clone()
@@ -150,9 +155,9 @@ def run_test_init():
     if line.end is end:
         print_failure(message.format('END'))
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Tests using another line:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     start = m1.Point(-10, 111)
     end = m1.Point(222, -20)
     start_clone = start.clone()
@@ -179,14 +184,15 @@ def run_test_init():
 
     end_test()
 
+
 def run_test_clone():
     """ Tests the   clone   method of the Line class. """
     if not start_test('clone'):
         return
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Tests using one line:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     start = m1.Point(12, 88)
     end = m1.Point(40, 33)
     start_clone = start.clone()
@@ -239,13 +245,11 @@ def run_test_clone():
     actual = line.end
     evaluate_test(expected, actual, 'Testing END for the line:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Tests using another line:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     start = m1.Point(55, 66)
     end = m1.Point(77, 88)
-    start_clone = start.clone()
-    end_clone = end.clone()
 
     line = m1.Line(start, end)
     clone = line.clone()
@@ -268,9 +272,9 @@ def run_test_reverse():
     if not start_test('reverse'):
         return
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Tests using one line:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line = m1.Line(m1.Point(12, 88),
                    m1.Point(40, 33))
 
@@ -279,9 +283,9 @@ def run_test_reverse():
     line_clone = m1.Line(m1.Point(12, 88),
                          m1.Point(40, 33))
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Reverse the first time:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line.reverse()
 
     expected = original_end
@@ -300,9 +304,9 @@ def run_test_reverse():
         print_failure('      END is a CLONE of the original START')
         print_failure('      instead of the original START itself.')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # After another reverse, line should be back to the original line.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line.reverse()
 
     expected = line_clone
@@ -547,9 +551,9 @@ def run_test_is_parallel():
     if not start_test('is_parallel'):
         return
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Tests using one pair of lines.  Each has slope -5.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line1 = m1.Line(m1.Point(24, 10),
                     m1.Point(20, 30))
     line2 = m1.Line(m1.Point(60, -110),
@@ -572,9 +576,9 @@ def run_test_is_parallel():
     actual = line2.is_parallel(line1)
     evaluate_test(expected, actual, 'Testing that again:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Modifying one of the lines, so that they are no longer parallel:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line1.start.x = line1.start.x + 0.000001
     expected = False
     actual = line1.is_parallel(line2)
@@ -584,9 +588,9 @@ def run_test_is_parallel():
     actual = line2.is_parallel(line1)
     evaluate_test(expected, actual, 'Testing that again:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing horizontal lines:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line1 = m1.Line(m1.Point(88, 50),
                     m1.Point(99, 50))
     line2 = m1.Line(m1.Point(-100, 300),
@@ -620,9 +624,9 @@ def run_test_is_parallel():
     actual = line2.is_parallel(line1)
     evaluate_test(expected, actual, 'Testing that again:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing vertical lines:
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line1 = m1.Line(m1.Point(77, 66),
                     m1.Point(77, -600))
     line2 = m1.Line(m1.Point(-110, 33),
@@ -656,12 +660,12 @@ def run_test_is_parallel():
     actual = line2.is_parallel(line1)
     evaluate_test(expected, actual, 'Testing that again:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing a situation where floating point arithmetic may say
     # that two slopes that are equal (in REAL arithmetic) are NOT equal.
     #
     # The code must ROUND in comparing the two slopes.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line1 = m1.Line(m1.Point(24 * math.pi, 10),
                     m1.Point(20 * math.pi, 30))
     line2 = m1.Line(m1.Point(60 * math.pi, -110),
@@ -669,8 +673,9 @@ def run_test_is_parallel():
 
     expected = True
     actual = line1.is_parallel(line2)
-    evaluate_test(expected, actual,
-                  'Testing two in-fact PARALLEL lines with slightly different computed slopes (from round-off):')
+    message = ('Testing two in-fact PARALLEL lines with slightly'
+               + ' different computed slopes from round-off):')
+    evaluate_test(expected, actual, message)
 
     end_test()
 
@@ -896,7 +901,6 @@ def run_test_is_parallel():
 #     end_test()
 
 
-
 def run_test_reset():
     """ Tests the   reset   method of the Line class. """
     if not start_test('reset'):
@@ -917,9 +921,9 @@ def run_test_reset():
     line2.reverse()
     line3.reverse()
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing line1 BEFORE the reset, then AFTER the reset.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     expected = False
     actual = (line1 == m1.Line(p1, p2))
     evaluate_test(expected, actual, 'Testing line1 BEFORE the reset:')
@@ -930,9 +934,9 @@ def run_test_reset():
     actual = line1
     evaluate_test(expected, actual, 'Testing line1 AFTER the reset:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing line2 BEFORE the reset, then AFTER the reset.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     expected = False
     actual = (line2 == m1.Line(p3, p4))
     evaluate_test(expected, actual, 'Testing line2 BEFORE the reset:')
@@ -943,9 +947,9 @@ def run_test_reset():
     actual = line2
     evaluate_test(expected, actual, 'Testing line2 AFTER the reset:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing line3 BEFORE the reset, then AFTER the reset.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     expected = False
     actual = (line3 == m1.Line(p1, p3))
     evaluate_test(expected, actual, 'Testing line3 BEFORE the reset:')
@@ -956,9 +960,9 @@ def run_test_reset():
     actual = line3
     evaluate_test(expected, actual, 'Testing line3 AFTER the reset:')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing MANY resets, then ONLY resets.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     for _ in range(99):
         line1.reverse()
         line1.reset()
@@ -975,10 +979,10 @@ def run_test_reset():
     actual = line3
     evaluate_test(expected, actual, 'Testing line3 after ONLY resets')
 
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # Testing whether the code CLONED when it stored the original Points
     # for retrieval by reset.
-    # ------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     line4 = m1.Line(m1.Point(66, 77),
                     m1.Point(88, 99))
     line4.start.x = 100
@@ -1007,9 +1011,9 @@ def run_test_reset():
 #     print('\nHere is YOUR test (that YOU wrote in m1_Line):')
 #     print()
 
-# ----------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
-# ----------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 if __name__ == '__main__':
     main()
